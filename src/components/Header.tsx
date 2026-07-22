@@ -23,7 +23,7 @@ export function Header() {
         <Link href="/" className="flex shrink-0 items-center gap-2.5">
           <Logo alto={38} />
           {/* Itálica y bien apretado para que acompañe la inclinación del logo. */}
-          <span className="hidden text-lg font-extrabold italic tracking-tighter sm:block">
+          <span className="text-base font-extrabold italic tracking-tighter sm:text-lg">
             {MARCA.nombre}
           </span>
         </Link>
