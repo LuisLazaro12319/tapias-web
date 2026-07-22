@@ -38,16 +38,6 @@ export default function Home() {
             Fabricamos prendas de calidad premium. Elegí lo que quieras, armá tu
             pedido y lo cerramos por WhatsApp — simple y sin vueltas.
           </p>
-
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Link
-              href="/productos"
-              className="rounded-full bg-acento px-7 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-90"
-            >
-              Ver productos
-            </Link>
-            <ModoToggle tamano="lg" />
-          </div>
         </div>
       </section>
 
