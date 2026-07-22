@@ -1,10 +1,36 @@
 import Link from "next/link";
-import { MARCA } from "@/lib/config";
+import { MARCA, TEL_MAYORISTA_VISIBLE, WHATSAPP } from "@/lib/config";
+
+function IconoFacebook() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M9.1 23.7v-8H6.6v-3.7h2.5v-1.6c0-4.1 1.9-6 5.9-6 .4 0 1 0 1.5.1.4 0 .8.1 1.1.2v3.3l-.7-.1h-.7c-.7 0-1.3.1-1.7.3-.3.1-.5.3-.7.6-.2.4-.4 1-.4 1.8V12h3.9l-.4 2.1-.3 1.6h-3.2v8c5.1-.6 9.1-5 9.1-10.3C22.5 5.6 17.8 1 12 1S1.5 5.6 1.5 11.4c0 5.3 4 9.7 9.1 10.3l-1.5 2Z" />
+    </svg>
+  );
+}
+
+function IconoInstagram() {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      aria-hidden="true"
+    >
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 export function Footer() {
   return (
     <footer className="mt-20 border-t border-borde">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-foreground text-sm font-black tracking-tighter text-background">
@@ -37,17 +63,54 @@ export function Footer() {
                 Mi pedido
               </Link>
             </li>
-            <li>
-              <a
-                href={MARCA.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-foreground"
-              >
-                Instagram
-              </a>
-            </li>
           </ul>
+        </div>
+
+        <div className="text-sm">
+          <h3 className="mb-3 font-medium uppercase tracking-wide">
+            Seguinos en nuestras redes
+          </h3>
+
+          <div className="flex gap-4">
+            <a
+              href={MARCA.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook de Tapias.Arg"
+              className="text-foreground transition-colors hover:text-acento"
+            >
+              <IconoFacebook />
+            </a>
+            <a
+              href={MARCA.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de Tapias.Arg"
+              className="text-foreground transition-colors hover:text-acento"
+            >
+              <IconoInstagram />
+            </a>
+          </div>
+
+          <p className="mt-5 text-tenue">
+            Email:{" "}
+            <a
+              href={`mailto:${MARCA.email}`}
+              className="underline underline-offset-4 hover:text-foreground"
+            >
+              {MARCA.email}
+            </a>
+          </p>
+
+          <p className="mt-3 text-tenue">Compra Mayorista:</p>
+          <a
+            href={`https://wa.me/${WHATSAPP.mayorista}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-tenue transition-colors hover:text-foreground"
+          >
+            {TEL_MAYORISTA_VISIBLE}
+          </a>
         </div>
       </div>
 

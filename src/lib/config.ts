@@ -14,6 +14,9 @@ export const WHATSAPP = {
   mayorista: "5491156199449",
 } as const;
 
+/** El mismo número que WHATSAPP.mayorista, escrito para mostrar en pantalla. */
+export const TEL_MAYORISTA_VISIBLE = "+54 9 11 5619-9449";
+
 export const MARCA = {
   nombre: "Tapias.Arg",
   tagline: "Indumentaria masculina · Moda oversize & urbana",
@@ -21,7 +24,10 @@ export const MARCA = {
     "Fabricamos indumentaria masculina. Moda oversize y urbana de calidad premium, con envíos a todo el país.",
   ubicacion: "Flores, CABA",
   direccion: "Av. Avellaneda 425, Galería Oxford — Local 13",
-  instagram: "https://www.instagram.com/tapias.arg2/",
+  instagram: "https://www.instagram.com/tapias.arg/",
+  facebook: "https://www.facebook.com/Tapiasarg/",
+  /** ⚠️ DEMO: de ejemplo. Va el correo real cuando esté el dominio propio. */
+  email: "ventas@tapias.com.ar",
 } as const;
 
 /** Cantidad mínima de prendas para acceder a precios mayoristas. */
