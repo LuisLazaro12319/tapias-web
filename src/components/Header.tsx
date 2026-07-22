@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useTienda } from "@/context/TiendaContext";
 import { ModoToggle } from "@/components/ModoToggle";
 import { Logo } from "@/components/Logo";
+import { MARCA } from "@/lib/config";
 
 const LINKS = [
   { href: "/", texto: "Inicio" },
@@ -19,8 +20,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-borde bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6">
-        <Link href="/" className="shrink-0" aria-label="Tapias.Arg — Inicio">
+        <Link href="/" className="flex shrink-0 items-center gap-2.5">
           <Logo alto={38} />
+          {/* Itálica y bien apretado para que acompañe la inclinación del logo. */}
+          <span className="hidden text-lg font-extrabold italic tracking-tighter sm:block">
+            {MARCA.nombre}
+          </span>
         </Link>
 
         <nav className="ml-4 hidden gap-6 text-sm md:flex">
