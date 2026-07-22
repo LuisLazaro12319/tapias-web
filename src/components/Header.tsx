@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useTienda } from "@/context/TiendaContext";
 import { ModoToggle } from "@/components/ModoToggle";
+import { Logo } from "@/components/Logo";
 import { MARCA } from "@/lib/config";
 
 const LINKS = [
@@ -19,10 +20,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-borde bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-foreground text-sm font-black tracking-tighter text-background">
-            TP
-          </span>
+        <Link href="/" className="flex items-center gap-3 shrink-0">
+          <Logo alto={26} />
           <span className="titulo-display hidden text-lg sm:block">
             {MARCA.nombre}
           </span>

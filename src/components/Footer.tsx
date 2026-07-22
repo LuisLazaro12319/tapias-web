@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MARCA, TEL_MAYORISTA_VISIBLE, WHATSAPP } from "@/lib/config";
+import { Logo } from "@/components/Logo";
 
 function IconoFacebook() {
   return (
@@ -32,10 +33,8 @@ export function Footer() {
     <footer className="mt-20 border-t border-borde">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-foreground text-sm font-black tracking-tighter text-background">
-              TP
-            </span>
+          <div className="flex items-center gap-3">
+            <Logo alto={32} />
             <span className="titulo-display text-lg">{MARCA.nombre}</span>
           </div>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-tenue">
@@ -102,7 +101,7 @@ export function Footer() {
             </a>
           </p>
 
-          <p className="mt-3 text-tenue">Compra Mayorista:</p>
+          <p className="mt-3 text-tenue">Cualquier consulta contactar al</p>
           <a
             href={`https://wa.me/${WHATSAPP.mayorista}`}
             target="_blank"
