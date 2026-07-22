@@ -2,6 +2,31 @@ import Link from "next/link";
 import { MARCA, TEL_MAYORISTA_VISIBLE, WHATSAPP } from "@/lib/config";
 import { Logo } from "@/components/Logo";
 
+/**
+ * Bandera argentina dibujada a mano.
+ *
+ * No se usa el emoji 🇦🇷 porque Windows no dibuja las banderas: en vez de la
+ * bandera muestra las letras "AR", y la mayoría de los clientes de escritorio
+ * están en Windows.
+ */
+function BanderaArgentina() {
+  return (
+    <svg
+      width="18"
+      height="12"
+      viewBox="0 0 27 18"
+      className="inline-block align-[-1px] rounded-[2px]"
+      aria-label="Argentina"
+      role="img"
+    >
+      <rect width="27" height="18" fill="#fff" />
+      <rect width="27" height="6" fill="#75AADB" />
+      <rect y="12" width="27" height="6" fill="#75AADB" />
+      <circle cx="13.5" cy="9" r="2.1" fill="#F6B40E" />
+    </svg>
+  );
+}
+
 function IconoFacebook() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -43,7 +68,9 @@ export function Footer() {
           <h3 className="mb-3 font-medium">Showroom</h3>
           <p className="text-tenue">{MARCA.ubicacion}</p>
           <p className="text-tenue">{MARCA.direccion}</p>
-          <p className="mt-3 text-tenue">Envíos a todo el país 📦</p>
+          <p className="mt-3 text-tenue">
+            Envíos a todo el país <BanderaArgentina />
+          </p>
         </div>
 
         <div className="text-sm">
