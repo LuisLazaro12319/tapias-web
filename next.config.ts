@@ -5,15 +5,12 @@ import type { NextConfig } from "next";
  * (usuario.github.io/tapias-web), así que exportamos HTML plano y
  * declaramos el basePath.
  *
- * Si más adelante mudamos a Vercel o Cloudflare Pages con dominio propio,
- * se borran las tres opciones y Next vuelve a su modo normal.
+ * NEXT_PUBLIC_BASE_PATH la define el workflow de deploy. En local queda
+ * vacía y el sitio sirve desde la raíz, igual que con un dominio propio.
  */
-const REPO = "/tapias-web";
-const esPages = process.env.DEPLOY_TARGET === "gh-pages";
-
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: esPages ? REPO : "",
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
   images: { unoptimized: true },
 };
 

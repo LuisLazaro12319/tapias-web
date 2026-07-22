@@ -29,7 +29,8 @@ jobs:
 
       - run: npm run build
         env:
-          DEPLOY_TARGET: gh-pages
+          NEXT_PUBLIC_BASE_PATH: /tapias-web
+          NEXT_PUBLIC_SITIO: https://luislazaro12319.github.io/tapias-web
 
       # Sin esto, GitHub Pages ignora la carpeta _next/ por empezar con guión bajo.
       - run: touch out/.nojekyll

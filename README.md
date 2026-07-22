@@ -39,16 +39,23 @@ Publicado en **https://luislazaro12319.github.io/tapias-web/**
 Cada `git push` a `main` reconstruye y publica solo (GitHub Actions,
 `.github/workflows/deploy.yml`). No hay que hacer nada más.
 
-El `basePath` de `/tapias-web` se aplica **solo** cuando la variable
-`DEPLOY_TARGET=gh-pages`, que la setea el workflow. En local y con un futuro
-dominio propio el sitio sirve desde la raíz.
+El workflow define dos variables al buildear:
+
+| Variable | Para qué |
+|---|---|
+| `NEXT_PUBLIC_BASE_PATH` | La subcarpeta (`/tapias-web`). En local queda vacía |
+| `NEXT_PUBLIC_SITIO` | URL absoluta, la piden las etiquetas de compartir |
+
+Van con prefijo `NEXT_PUBLIC_` porque el navegador también las necesita:
+`next/image` con `unoptimized` **no** antepone el `basePath` solo, así que las
+imágenes de `/public` lo llevan a mano (ver `src/components/Logo.tsx`).
 
 ### Cuando haya dominio propio
 
 1. Apuntar el DNS del dominio a GitHub Pages (4 registros A + un CNAME)
 2. Cargar el dominio en Settings → Pages del repo
-3. En `next.config.ts` y `src/lib/config.ts`: sacar el `basePath` y poner la
-   URL nueva en `SITIO`
+3. En el workflow: borrar `NEXT_PUBLIC_BASE_PATH` y poner el dominio nuevo
+   en `NEXT_PUBLIC_SITIO`
 4. Regenerar `public/og.png` (ver abajo)
 
 ## Antes de publicar — cambiar esto

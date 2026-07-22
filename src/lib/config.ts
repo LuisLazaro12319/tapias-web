@@ -34,11 +34,21 @@ export const MARCA = {
 export const MINIMO_MAYORISTA = 10;
 
 /**
+ * Subcarpeta desde la que se sirve el sitio ("/tapias-web" en GitHub Pages,
+ * vacío en local y con dominio propio). La define el workflow de deploy.
+ *
+ * Hace falta para las imágenes de /public: next/image con `unoptimized` NO
+ * agrega el basePath solo, así que hay que anteponerlo a mano.
+ *
+ * Tiene que empezar con NEXT_PUBLIC_ para que Next la incluya también en el
+ * código que corre en el navegador.
+ */
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+/**
  * URL pública del sitio. La necesitan las etiquetas de compartir (WhatsApp,
  * Google) porque exigen direcciones absolutas.
  * El día que haya dominio propio, esto pasa a "https://tapias.com.ar".
  */
 export const SITIO =
-  process.env.DEPLOY_TARGET === "gh-pages"
-    ? "https://luislazaro12319.github.io/tapias-web"
-    : "http://localhost:3000";
+  process.env.NEXT_PUBLIC_SITIO ?? "http://localhost:3000";

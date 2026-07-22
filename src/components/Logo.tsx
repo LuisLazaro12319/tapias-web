@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/config";
 
 /**
  * Isotipo TP de la marca.
@@ -25,7 +26,7 @@ export function Logo({ alto = 28 }: { alto?: number }) {
       style={{ height: alto, width: alto * PROPORCION }}
     >
       <Image
-        src="/logo-tapias.jpg"
+        src={`${BASE_PATH}/logo-tapias.jpg`}
         alt="Tapias.Arg"
         width={768}
         height={768}
