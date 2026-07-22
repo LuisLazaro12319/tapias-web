@@ -2,6 +2,7 @@ import Link from "next/link";
 import { productos } from "@/data/productos";
 import { ProductoCard } from "@/components/ProductoCard";
 import { ModoToggle } from "@/components/ModoToggle";
+import { ComoComprar } from "@/components/ComoComprar";
 import { MARCA, MINIMO_MAYORISTA } from "@/lib/config";
 
 const BENEFICIOS = [
@@ -70,7 +71,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+      <ComoComprar />
+
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="rounded-2xl border border-borde bg-superficie p-8 sm:p-12">
           <h2 className="titulo-display text-2xl sm:text-3xl">
             ¿Comprás por cantidad?
