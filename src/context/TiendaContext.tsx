@@ -52,6 +52,13 @@ export function TiendaProvider({ children }: { children: React.ReactNode }) {
   const [listo, setListo] = useState(false);
 
   // Restaurar del navegador una sola vez, ya montado el componente.
+  //
+  // El lint desaconseja llamar a setState dentro de un efecto, pero acá es a
+  // propósito: localStorage no existe cuando se genera el HTML, así que el
+  // primer render tiene que salir vacío en el servidor y en el cliente. Si
+  // leyéramos el carrito antes, el HTML y el navegador no coincidirían y React
+  // tiraría error de hidratación.
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     try {
       const carritoGuardado = localStorage.getItem(CLAVE_CARRITO);
@@ -65,6 +72,7 @@ export function TiendaProvider({ children }: { children: React.ReactNode }) {
     }
     setListo(true);
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     if (!listo) return;
