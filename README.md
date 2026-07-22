@@ -32,6 +32,25 @@ El toggle del header cambia tres cosas a la vez:
 
 La elección queda guardada en el navegador del cliente.
 
+## Deploy
+
+Publicado en **https://luislazaro12319.github.io/tapias-web/**
+
+Cada `git push` a `main` reconstruye y publica solo (GitHub Actions,
+`.github/workflows/deploy.yml`). No hay que hacer nada más.
+
+El `basePath` de `/tapias-web` se aplica **solo** cuando la variable
+`DEPLOY_TARGET=gh-pages`, que la setea el workflow. En local y con un futuro
+dominio propio el sitio sirve desde la raíz.
+
+### Cuando haya dominio propio
+
+1. Apuntar el DNS del dominio a GitHub Pages (4 registros A + un CNAME)
+2. Cargar el dominio en Settings → Pages del repo
+3. En `next.config.ts` y `src/lib/config.ts`: sacar el `basePath` y poner la
+   URL nueva en `SITIO`
+4. Regenerar `public/og.png` (ver abajo)
+
 ## Antes de publicar — cambiar esto
 
 - **`src/lib/config.ts`** → los dos números de WhatsApp. Hoy ambos apuntan al
@@ -40,6 +59,17 @@ La elección queda guardada en el navegador del cliente.
 - **Fotos**: hoy se muestran siluetas de color como placeholder
   (`src/components/PrendaPlaceholder.tsx`). Cuando lleguen las fotos reales,
   se reemplaza ese componente por `<Image />` y no hay que tocar nada más.
+
+## La imagen de vista previa (`public/og.png`)
+
+Es lo que se ve al compartir el link por WhatsApp o Instagram. Es un archivo
+estático **generado a mano una vez**: GitHub Pages necesita la extensión `.png`
+para mandar el `content-type` correcto, y la ruta que genera Next sale sin
+extensión.
+
+Para regenerarla (si cambia la marca o el dominio), recuperar
+`src/app/opengraph-image.tsx` del historial de git, buildear, y copiar
+`out/opengraph-image` a `public/og.png`.
 
 ## Etapa 2 (solo si el dueño aprueba)
 
