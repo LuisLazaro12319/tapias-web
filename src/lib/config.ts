@@ -26,3 +26,13 @@ export const MARCA = {
 
 /** Cantidad mínima de prendas para acceder a precios mayoristas. */
 export const MINIMO_MAYORISTA = 10;
+
+/**
+ * URL pública del sitio. La necesitan las etiquetas de compartir (WhatsApp,
+ * Google) porque exigen direcciones absolutas.
+ * El día que haya dominio propio, esto pasa a "https://tapias.com.ar".
+ */
+export const SITIO =
+  process.env.DEPLOY_TARGET === "gh-pages"
+    ? "https://luislazaro12319.github.io/tapias-web"
+    : "http://localhost:3000";

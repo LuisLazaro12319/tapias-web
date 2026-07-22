@@ -4,7 +4,7 @@ import "./globals.css";
 import { TiendaProvider } from "@/context/TiendaContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { MARCA } from "@/lib/config";
+import { MARCA, SITIO } from "@/lib/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,11 +17,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITIO),
   title: {
     default: `${MARCA.nombre} — ${MARCA.tagline}`,
     template: `%s · ${MARCA.nombre}`,
   },
   description: MARCA.descripcion,
+  keywords: [
+    "indumentaria masculina",
+    "ropa oversize",
+    "buzos oversize",
+    "mayorista de ropa",
+    "Flores CABA",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: MARCA.nombre,
+    title: `${MARCA.nombre} — ${MARCA.tagline}`,
+    description: MARCA.descripcion,
+    url: SITIO,
+    // Archivo estático (no ruta generada) para que GitHub Pages lo sirva
+    // como image/png; si no, WhatsApp no muestra la vista previa.
+    images: [
+      {
+        url: `${SITIO}/og.png`,
+        width: 1200,
+        height: 630,
+        alt: `${MARCA.nombre} — ${MARCA.tagline}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
