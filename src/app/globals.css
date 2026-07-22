@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Paleta tomada de las publicaciones de @tapias.arg2:
+   fondo oscuro, tipografía clara y acentos arena/crema. */
+:root {
+  --background: #0b0b0c;
+  --superficie: #151517;
+  --borde: #26262a;
+  --foreground: #f2efe9;
+  --tenue: #9a978f;
+  --acento: #d9c9ae;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-superficie: var(--superficie);
+  --color-borde: var(--borde);
+  --color-foreground: var(--foreground);
+  --color-tenue: var(--tenue);
+  --color-acento: var(--acento);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* El sitio se diseñó en oscuro; no seguimos el tema del sistema. */
+html {
+  color-scheme: dark;
+}
+
+.titulo-display {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
