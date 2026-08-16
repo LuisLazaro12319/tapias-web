@@ -1,14 +1,13 @@
 @import "tailwindcss";
 
-/* Paleta tomada de las publicaciones de @tapias.arg2:
-   fondo oscuro, tipografía clara y acentos arena/crema. */
+/* Paleta oscura con acento dorado brillante. */
 :root {
-  --background: #0b0b0c;
-  --superficie: #151517;
-  --borde: #26262a;
-  --foreground: #f2efe9;
-  --tenue: #9a978f;
-  --acento: #d9c9ae;
+  --background: #050506;
+  --superficie: #131316;
+  --borde: #2b2b30;
+  --foreground: #fbf8f0;
+  --tenue: #a8a49a;
+  --acento: #f5c542;
 }
 
 @theme inline {
