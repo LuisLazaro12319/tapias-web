@@ -34,6 +34,25 @@ export const MARCA = {
 export const MINIMO_MAYORISTA = 10;
 
 /**
+ * Imágenes de fondo (en /public) detrás de algunas secciones. Vacío = sin
+ * fondo. El dueño las cambia desde el panel > Inicio de la web.
+ */
+export const FONDOS = {
+  destacados: "",
+  productos: "",
+  compras: "",
+} as const;
+
+/**
+ * Promos / ofertas del carrusel del inicio. El dueño sube los banners desde
+ * el panel. Si hay más de uno, rotan solos; al tocar uno lleva a la categoría
+ * Ofertas. Vacío = no se muestra la sección.
+ */
+export const PROMOS: { imagen: string; titulo: string; link: string }[] = [
+  { imagen: "promos/promo-tapias.png", titulo: "Ofertas hasta 50% OFF", link: "/productos?ver=ofertas" },
+];
+
+/**
  * Subcarpeta desde la que se sirve el sitio ("/tapias-web" en GitHub Pages,
  * vacío en local y con dominio propio). La define el workflow de deploy.
  *

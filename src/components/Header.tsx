@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useTienda } from "@/context/TiendaContext";
 import { ModoToggle } from "@/components/ModoToggle";
+import { TemaToggle } from "@/components/TemaToggle";
 import { Logo } from "@/components/Logo";
 import { MARCA } from "@/lib/config";
 
@@ -45,9 +46,11 @@ export function Header() {
             <ModoToggle />
           </div>
 
+          <TemaToggle />
+
           <Link
             href="/carrito"
-            className="relative flex h-9 items-center gap-2 rounded-full border border-borde px-3.5 text-sm transition-colors hover:border-acento"
+            className="relative flex h-9 items-center gap-2 rounded-none border border-borde px-3.5 text-sm transition-colors hover:border-acento"
           >
             <svg
               width="16"

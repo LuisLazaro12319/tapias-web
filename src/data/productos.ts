@@ -1,181 +1,185 @@
 import type { Categoria, Producto } from "@/lib/types";
 
 /**
- * ⚠️ DEMO: productos y precios INVENTADOS, armados a partir de las publicaciones
- * de @tapias.arg2 para que la maqueta se vea creíble. El dueño los reemplaza
- * después desde el panel de administrador.
- *
- * En la Etapa 2 este archivo se cambia por una lectura de Firestore. El resto
- * de la app no se toca: todos los componentes consumen el tipo `Producto`.
+ * ⚠️ DEMO: productos y precios de EJEMPLO (indumentaria masculina), para que la
+ * maqueta se vea creíble. Sin Destino los reemplaza por sus prendas reales y
+ * sube las fotos desde el panel. Por eso van con `foto: false` (se muestra la
+ * silueta) hasta que carguen las imágenes reales.
  */
 
-const TALLES_ROPA = ["S", "M", "L", "XL"];
+const TALLES = ["S", "M", "L", "XL", "XXL"];
 const TALLES_PANTALON = ["38", "40", "42", "44", "46"];
 
 const NEGRO = { nombre: "Negro", hex: "#1c1c1c" };
-const BEIGE = { nombre: "Beige arena", hex: "#d9c9ae" };
-const CREMA = { nombre: "Crema", hex: "#e8e0d0" };
+const BLANCO = { nombre: "Blanco", hex: "#f1f0ec" };
 const GRIS = { nombre: "Gris melange", hex: "#8f9490" };
-const VERDE = { nombre: "Verde militar", hex: "#5c6250" };
-const CHOCOLATE = { nombre: "Chocolate", hex: "#4a382c" };
-const OFFWHITE = { nombre: "Off white", hex: "#f0ece4" };
+const AZUL = { nombre: "Azul marino", hex: "#2e3a52" };
+const ARENA = { nombre: "Arena", hex: "#c8b89a" };
+const MILITAR = { nombre: "Verde militar", hex: "#4b5340" };
 
 export const productos: Producto[] = [
   {
-    slug: "buzo-oversize-frisa-premium",
-    nombre: "Buzo Oversize Frisa Premium",
+    slug: "buzo-oversize",
+    nombre: "Buzo Oversize",
     categoria: "buzos",
     descripcion:
-      "Buzo cuello redondo de corte oversize, en frisa peinada de alto gramaje. La prenda insignia de la temporada.",
+      "Buzo de frisa de corte oversize, cuello redondo. Abrigado y con caída urbana, la prenda estrella de la temporada.",
     detalle: "Frisa peinada 400gr · 80% algodón / 20% poliéster · Corte oversize",
-    precioMinorista: 52000,
-    precioMayorista: 31000,
-    talles: TALLES_ROPA,
-    colores: [BEIGE, GRIS, NEGRO, VERDE],
+    precioMinorista: 33000,
+    precioMayorista: 20000,
+    talles: TALLES,
+    colores: [NEGRO, GRIS, ARENA, AZUL],
     destacado: true,
+    foto: true,
   },
   {
-    slug: "hoodie-oversize-clasico",
-    nombre: "Hoodie Oversize Clásico",
+    slug: "canguro-capucha",
+    nombre: "Canguro con Capucha",
     categoria: "hoodies",
     descripcion:
-      "Canguro con capucha forrada y bolsillo delantero. Hombro caído y cuerpo amplio.",
+      "Canguro con capucha doble tela y bolsillo delantero. Silueta relajada, ideal para todos los días.",
     detalle: "Frisa peinada 420gr · Capucha doble tela · Puño y cintura elastizados",
-    precioMinorista: 61000,
-    precioMayorista: 37000,
-    talles: TALLES_ROPA,
-    colores: [GRIS, NEGRO, BEIGE, CHOCOLATE],
+    precioMinorista: 39000,
+    precioMayorista: 24000,
+    talles: TALLES,
+    colores: [NEGRO, GRIS, MILITAR, BLANCO],
     destacado: true,
+    foto: true,
   },
   {
-    slug: "sweater-waffle-oversize",
-    nombre: "Sweater Waffle Oversize",
-    categoria: "sweaters",
-    descripcion:
-      "Sweater de hilo con textura waffle, cuello redondo. Liviano pero abrigado, ideal para entretiempo.",
-    detalle: "Hilo de algodón · Textura waffle · Tejido en Argentina",
-    precioMinorista: 58000,
-    precioMayorista: 35000,
-    talles: TALLES_ROPA,
-    colores: [BEIGE, NEGRO, OFFWHITE],
-    destacado: true,
-  },
-  {
-    slug: "pantalon-wide-leg-gabardina",
-    nombre: "Pantalón Wide Leg Gabardina",
-    categoria: "pantalones",
-    descripcion:
-      "Pantalón de gabardina con pierna ancha y caída recta. Cintura con cordón interno.",
-    detalle: "Gabardina de algodón · Cintura ajustable · Cuatro bolsillos",
-    precioMinorista: 55000,
-    precioMayorista: 33000,
-    talles: TALLES_PANTALON,
-    colores: [CREMA, NEGRO, VERDE, CHOCOLATE],
-    destacado: true,
-  },
-  {
-    slug: "jogger-frisa-recto",
-    nombre: "Jogger de Frisa Recto",
-    categoria: "pantalones",
-    descripcion:
-      "Jogger de frisa con caída recta, sin puño. Combina con toda la línea de buzos.",
-    detalle: "Frisa peinada 350gr · Cordón de ajuste · Bolsillos laterales",
-    precioMinorista: 47000,
-    precioMayorista: 28000,
-    talles: TALLES_PANTALON,
-    colores: [GRIS, NEGRO, BEIGE],
-  },
-  {
-    slug: "buzo-media-cierre",
-    nombre: "Buzo Media Cierre",
-    categoria: "buzos",
-    descripcion:
-      "Buzo con cierre a la mitad y cuello alto. Silueta oversize con terminación premium.",
-    detalle: "Frisa peinada 400gr · Cierre metálico · Cuello alto",
-    precioMinorista: 56000,
-    precioMayorista: 34000,
-    talles: TALLES_ROPA,
-    colores: [CHOCOLATE, NEGRO, GRIS],
-  },
-  {
-    slug: "remera-oversize-algodon-peinado",
-    nombre: "Remera Oversize Algodón Peinado",
+    slug: "remera-oversize",
+    nombre: "Remera Oversize",
     categoria: "remeras",
     descripcion:
-      "Remera de algodón peinado 24/1, corte boxy con hombro caído. Base de cualquier outfit.",
-    detalle: "Algodón peinado 24/1 · Cuello reforzado · Corte boxy",
-    precioMinorista: 28000,
-    precioMayorista: 16000,
-    talles: TALLES_ROPA,
-    colores: [OFFWHITE, NEGRO, BEIGE, VERDE],
+      "Remera de algodón peinado, corte oversize y hombro caído. Base perfecta para cualquier look urbano.",
+    detalle: "Algodón peinado 24/1 · Cuello reforzado · Corte oversize",
+    precioMinorista: 17000,
+    precioMayorista: 10000,
+    talles: TALLES,
+    colores: [BLANCO, NEGRO, ARENA, MILITAR],
+    destacado: true,
+    foto: true,
   },
   {
-    slug: "hoodie-oversize-sin-capucha",
-    nombre: "Sweater Cuello Redondo Hilo",
-    categoria: "sweaters",
-    descripcion:
-      "Sweater de hilo fino, cuello redondo y calce holgado. Tejido de punto cerrado.",
-    detalle: "Hilo fino · Punto cerrado · Puños acanalados",
-    precioMinorista: 54000,
-    precioMayorista: 32000,
-    talles: TALLES_ROPA,
-    colores: [NEGRO, CREMA, VERDE],
-  },
-  {
-    slug: "pantalon-cargo-oversize",
-    nombre: "Pantalón Cargo Oversize",
+    slug: "jogging-frisa",
+    nombre: "Jogging de Frisa",
     categoria: "pantalones",
     descripcion:
-      "Cargo de gabardina con bolsillos laterales y pierna amplia. Ajuste en el tobillo.",
-    detalle: "Gabardina rígida · Seis bolsillos · Ajuste inferior con cordón",
-    precioMinorista: 59000,
-    precioMayorista: 36000,
-    talles: TALLES_PANTALON,
-    colores: [VERDE, NEGRO, BEIGE],
+      "Jogging de frisa con cintura elastizada, cordón y puño. Cómodo, abrigado y con calce moderno.",
+    detalle: "Frisa peinada 350gr · Cintura elastizada · Bolsillos laterales",
+    precioMinorista: 30000,
+    precioMayorista: 18000,
+    talles: TALLES,
+    colores: [NEGRO, GRIS, AZUL],
+    destacado: true,
+    foto: true,
   },
   {
-    slug: "buzo-cuello-redondo-liso",
-    nombre: "Buzo Cuello Redondo Liso",
-    categoria: "buzos",
-    descripcion:
-      "Buzo básico de frisa, sin estampa. El clásico de la marca en su versión más simple.",
-    detalle: "Frisa peinada 380gr · Sin estampa · Corte oversize",
-    precioMinorista: 48000,
-    precioMayorista: 29000,
-    talles: TALLES_ROPA,
-    colores: [CREMA, GRIS, NEGRO, CHOCOLATE],
-  },
-  {
-    slug: "bucket-hat-gabardina",
-    nombre: "Bucket Hat Gabardina",
-    categoria: "accesorios",
-    descripcion:
-      "Piluso de gabardina con ala media. Talle único con ajuste interno.",
-    detalle: "Gabardina de algodón · Ala media · Talle único",
-    precioMinorista: 18000,
-    precioMayorista: 9500,
-    talles: ["Único"],
-    colores: [NEGRO, BEIGE, OFFWHITE],
-  },
-  {
-    slug: "hoodie-oversize-boxy-heavy",
-    nombre: "Hoodie Boxy Heavy",
+    slug: "campera-rompeviento",
+    nombre: "Campera Rompeviento",
     categoria: "hoodies",
     descripcion:
-      "La versión más pesada del canguro: corte boxy, hombro bien caído y frisa de 500gr.",
-    detalle: "Frisa peinada 500gr · Corte boxy · Cordón grueso",
-    precioMinorista: 68000,
-    precioMayorista: 41000,
-    talles: TALLES_ROPA,
+      "Rompeviento liviano con capucha y cierre completo. Repele el agua y se guarda en su propio bolsillo.",
+    detalle: "Poliéster ripstop · Capucha ajustable · Cierre completo",
+    precioMinorista: 42000,
+    precioMayorista: 26000,
+    talles: TALLES,
+    colores: [NEGRO, AZUL, MILITAR],
+  },
+  {
+    slug: "camisa-manga-larga",
+    nombre: "Camisa Manga Larga",
+    categoria: "sweaters",
+    descripcion:
+      "Camisa de gabardina con corte regular. Prolija para salir y resistente para el uso diario.",
+    detalle: "Gabardina de algodón · Botones reforzados · Corte regular",
+    precioMinorista: 28000,
+    precioMayorista: 17000,
+    talles: TALLES,
+    colores: [NEGRO, ARENA, AZUL, BLANCO],
+  },
+  {
+    slug: "remera-basica",
+    nombre: "Remera Básica",
+    categoria: "remeras",
+    descripcion:
+      "Remera de algodón corte al cuerpo, cuello redondo. La básica indispensable, ideal para llevar por cantidad.",
+    detalle: "Algodón peinado 20/1 · Cuello redondo · Corte clásico",
+    precioMinorista: 13000,
+    precioMayorista: 7500,
+    talles: TALLES,
+    colores: [BLANCO, NEGRO, GRIS, AZUL],
+    oferta: true,
+  },
+  {
+    slug: "pantalon-cargo",
+    nombre: "Pantalón Cargo",
+    categoria: "pantalones",
+    descripcion:
+      "Cargo de gabardina con bolsillos laterales y tobillo ajustable. Estilo urbano y mucha resistencia.",
+    detalle: "Gabardina resistente · Bolsillos cargo · Tobillo con elástico",
+    precioMinorista: 36000,
+    precioMayorista: 22000,
+    talles: TALLES_PANTALON,
+    colores: [NEGRO, ARENA, MILITAR],
+  },
+  {
+    slug: "bermuda-cargo",
+    nombre: "Bermuda Cargo",
+    categoria: "pantalones",
+    descripcion:
+      "Bermuda de gabardina con bolsillos laterales. Fresca y cómoda para los días de calor.",
+    detalle: "Gabardina liviana · Bolsillos cargo · Cintura con cordón",
+    precioMinorista: 22000,
+    precioMayorista: 13000,
+    talles: TALLES_PANTALON,
+    colores: [NEGRO, ARENA, GRIS],
+    oferta: true,
+  },
+  {
+    slug: "gorra-trucker",
+    nombre: "Gorra Trucker",
+    categoria: "accesorios",
+    descripcion:
+      "Gorra trucker con frente rígido y malla trasera. Regulable, un talle para todos.",
+    detalle: "Frente de gabardina · Malla transpirable · Cierre regulable",
+    precioMinorista: 9000,
+    precioMayorista: 5000,
+    talles: ["Único"],
+    colores: [NEGRO, BLANCO, MILITAR],
+  },
+  {
+    slug: "rinonera-urbana",
+    nombre: "Riñonera Urbana",
+    categoria: "accesorios",
+    descripcion:
+      "Riñonera de nylon resistente con cierres reforzados y correa ajustable. Se cruza al pecho o a la cintura.",
+    detalle: "Nylon resistente · Cierres reforzados · Correa ajustable",
+    precioMinorista: 12000,
+    precioMayorista: 7000,
+    talles: ["Único"],
     colores: [NEGRO, GRIS],
+    oferta: true,
+  },
+  {
+    slug: "campera-puffer",
+    nombre: "Campera Puffer",
+    categoria: "hoodies",
+    descripcion:
+      "Campera inflable acolchada con capucha. Abrigo máximo para el invierno, liviana y con estilo.",
+    detalle: "Relleno térmico · Exterior repelente · Capucha desmontable",
+    precioMinorista: 55000,
+    precioMayorista: 34000,
+    talles: TALLES,
+    colores: [NEGRO, AZUL],
     sinStock: true,
   },
 ];
 
 export const CATEGORIAS: { id: Categoria; nombre: string }[] = [
   { id: "buzos", nombre: "Buzos" },
-  { id: "hoodies", nombre: "Hoodies" },
-  { id: "sweaters", nombre: "Sweaters" },
+  { id: "hoodies", nombre: "Camperas y Canguros" },
+  { id: "sweaters", nombre: "Camisas" },
   { id: "pantalones", nombre: "Pantalones" },
   { id: "remeras", nombre: "Remeras" },
   { id: "accesorios", nombre: "Accesorios" },

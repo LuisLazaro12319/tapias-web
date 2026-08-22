@@ -55,7 +55,7 @@ function IconoInstagram() {
 
 export function Footer() {
   return (
-    <footer className="mt-20 border-t border-borde">
+    <footer className="border-t border-borde">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Logo alto={52} />
@@ -94,13 +94,13 @@ export function Footer() {
             Seguinos en nuestras redes
           </h3>
 
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             <a
               href={MARCA.facebook}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook de Tapias.Arg"
-              className="text-foreground transition-colors hover:text-acento"
+              className="flex h-11 w-11 items-center justify-center rounded-none border border-borde text-foreground transition-colors hover:border-transparent hover:bg-[#1877F2] hover:text-white"
             >
               <IconoFacebook />
             </a>
@@ -109,7 +109,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram de Tapias.Arg"
-              className="text-foreground transition-colors hover:text-acento"
+              className="flex h-11 w-11 items-center justify-center rounded-none border border-borde text-foreground transition-colors hover:border-transparent hover:bg-[#E1306C] hover:text-white"
             >
               <IconoInstagram />
             </a>

@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTienda } from "@/context/TiendaContext";
 import { PrendaPlaceholder } from "@/components/PrendaPlaceholder";
+import { CintaAgotado } from "@/components/CintaAgotado";
+import { CintaOferta } from "@/components/CintaOferta";
 import { precio } from "@/lib/formato";
+import { BASE_PATH } from "@/lib/config";
 import type { Producto } from "@/lib/types";
 
 export function ProductoCard({ producto }: { producto: Producto }) {
@@ -18,21 +22,26 @@ export function ProductoCard({ producto }: { producto: Producto }) {
     >
       <div className="relative aspect-[4/5] overflow-hidden">
         <div className="h-full w-full transition-transform duration-500 group-hover:scale-[1.04]">
-          <PrendaPlaceholder
-            categoria={producto.categoria}
-            hex={producto.colores[0].hex}
-            nombre={producto.nombre}
-          />
+          {producto.foto ? (
+            <Image
+              src={`${BASE_PATH}/prod/${producto.slug}.jpg`}
+              alt={producto.nombre}
+              width={640}
+              height={800}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <PrendaPlaceholder
+              categoria={producto.categoria}
+              hex={producto.colores[0].hex}
+              nombre={producto.nombre}
+            />
+          )}
         </div>
-        {producto.sinStock && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/65">
-            <span className="rounded-full border border-white/30 px-3 py-1 text-xs uppercase tracking-widest">
-              Sin stock
-            </span>
-          </div>
-        )}
+        {producto.sinStock && <CintaAgotado />}
+        {producto.oferta && !producto.sinStock && <CintaOferta />}
         {modo === "mayorista" && !producto.sinStock && (
-          <span className="absolute left-2.5 top-2.5 rounded-full bg-acento px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-black">
+          <span className="absolute right-2.5 top-2.5 rounded-full bg-foreground px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-background">
             −{Math.round((ahorro / producto.precioMinorista) * 100)}%
           </span>
         )}

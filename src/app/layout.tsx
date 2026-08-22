@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TiendaProvider } from "@/context/TiendaContext";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { SiteChrome } from "@/components/SiteChrome";
 import { MARCA, SITIO } from "@/lib/config";
 
 const geistSans = Geist({
@@ -61,13 +60,18 @@ export default function RootLayout({
   return (
     <html
       lang="es-AR"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var r=document.documentElement;var t=localStorage.getItem('tapias.tema');if(t==='light')r.setAttribute('data-theme','light');var a=localStorage.getItem('tapias.acento');if(a){r.style.setProperty('--acento',a);var n=parseInt(a.slice(1),16),R=Math.round((n>>16&255)*0.85),G=Math.round((n>>8&255)*0.85),B=Math.round((n&255)*0.85);r.style.setProperty('--acento-fuerte','#'+[R,G,B].map(function(x){return('0'+x.toString(16)).slice(-2)}).join(''));}}catch(e){}",
+          }}
+        />
         <TiendaProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <SiteChrome>{children}</SiteChrome>
         </TiendaProvider>
       </body>
     </html>

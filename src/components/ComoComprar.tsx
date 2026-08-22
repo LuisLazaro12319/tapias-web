@@ -1,3 +1,4 @@
+
 import { MINIMO_MAYORISTA } from "@/lib/config";
 
 /**
@@ -86,8 +87,8 @@ const PASOS = [
 
 export function ComoComprar() {
   return (
-    <section className="border-y border-borde bg-superficie/40">
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+    <section className="bg-superficie/40">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20">
         <div className="text-center">
           <p className="text-sm uppercase tracking-[0.25em] text-tenue">
             Simple y rápido
